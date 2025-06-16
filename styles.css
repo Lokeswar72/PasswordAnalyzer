@@ -1,0 +1,350 @@
+body {
+  font-family: 'Courier New', monospace;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  color: #0f0;
+}
+
+.container {
+  background: rgba(0, 20, 0, 0.9);
+  padding: 30px;
+  border: 2px solid #0f0;
+  border-radius: 0;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+  width: 400px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: #0f0;
+  animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+h1 {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 5px #0f0;
+}
+
+input[type="password"] {
+  width: 90%;
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px 0;
+  background: #000;
+  border: 1px solid #0f0;
+  border-radius: 0;
+  color: #0f0;
+  font-family: 'Courier New', monospace;
+}
+
+input[type="text"] {
+  width: 90%;
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px 0;
+  background: #000;
+  border: 1px solid #0f0;
+  border-radius: 0;
+  color: #0f0;
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 0 5px #0f0;
+  caret-color: #0f0;
+  letter-spacing: 2px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #0f0;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+  background: rgba(0, 255, 0, 0.05);
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #000;
+  color: #0f0;
+  border: 1px solid #0f0;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background-color: #0f0;
+  color: #000;
+  box-shadow: 0 0 10px #0f0;
+}
+
+.strength-bar {
+  height: 10px;
+  width: 90%;
+  background: #001400;
+  margin: 10px auto;
+  border: 1px solid #0f0;
+}
+
+#bar-fill {
+  height: 100%;
+  width: 0%;
+  transition: width 0.5s;
+}
+
+.info-boxes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.info-box {
+    flex: 1;
+    border: 1px solid #0f0;
+    padding: 15px;
+    background: rgba(0, 15, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.1);
+}
+
+.info-box h3 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #0f0;
+    letter-spacing: 1px;
+}
+
+#strength-text, #crack-time {
+    font-size: 16px;
+    min-height: 24px;
+    margin: 10px 0;
+}
+
+.matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.password-container {
+  position: relative;
+  width: 90%;
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+}
+
+.password-container input[type="password"] {
+  width: 100%;
+  margin: 0;
+}
+
+.password-container input[type="text"] {
+  width: 100%;
+  margin: 0;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  padding: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  text-shadow: 0 0 5px #0f0;
+  font-family: 'Courier New', monospace;
+  z-index: 2;
+}
+
+.eye-icon {
+  font-size: 14px;
+  opacity: 0.7;
+  transition: all 0.3s;
+  position: relative;
+  letter-spacing: -1px;
+}
+
+.eye-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background: #0f0;
+  border-radius: 50%;
+  transition: all 0.3s;
+  opacity: 0;
+}
+
+.toggle-password:hover .eye-icon {
+  opacity: 1;
+  transform: scale(1.1);
+  text-shadow: 0 0 10px #0f0;
+}
+
+.toggle-password:hover .eye-icon::before {
+  width: 20px;
+  height: 20px;
+  opacity: 0.1;
+}
+
+.toggle-password:active .eye-icon {
+  transform: scale(0.9);
+}
+
+/* Add data attributes for toggle state */
+.toggle-password[data-visible="true"] .eye-icon {
+  content: "[X]";
+}
+
+@keyframes matrixBurst {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.5;
+  }
+  100% {
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+  }
+}
+
+.matrix-burst {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, #0f0 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: matrixBurst 0.5s ease-out forwards;
+}
+
+/* Add glitch effect on toggle */
+.password-container input {
+  transition: all 0.3s;
+}
+
+.password-container input.glitch {
+  animation: glitch 0.3s ease-in-out;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+/* Add these media queries at the end of the file */
+@media screen and (max-width: 600px) {
+  .container {
+    width: 90%;
+    max-width: 400px;
+    padding: 20px 15px;
+    margin: 15px;
+  }
+
+  h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  input[type="password"],
+  input[type="text"] {
+    width: 85%;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 8px 15px;
+    font-size: 14px;
+    width: 90%;
+    margin: 8px auto;
+  }
+
+  .info-boxes {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .info-box {
+    padding: 10px;
+  }
+
+  .info-box h3 {
+    font-size: 12px;
+  }
+
+  #strength-text, 
+  #crack-time {
+    font-size: 14px;
+    min-height: 20px;
+  }
+
+  .strength-bar {
+    width: 100%;
+  }
+
+  .toggle-password {
+    right: 5px;
+  }
+
+  .eye-icon {
+    font-size: 12px;
+  }
+}
+
+/* Add viewport height fix for mobile browsers */
+@media screen and (max-height: 600px) {
+  body {
+    height: auto;
+    min-height: 100vh;
+    padding: 20px 0;
+  }
+}

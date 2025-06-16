@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Add viewport meta tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Password Strength Analyzer</title>
+  <!-- Add favicon links -->
+  <link rel="icon" type="image/png" href="image.png">
+  <link rel="apple-touch-icon" href="image.png">
+  <!-- Existing stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="matrix-bg" class="matrix-bg"></canvas>
+  <div class="container">
+    <h1>Password Analyzer v1.0</h1>
+    
+    <div class="password-container">
+      <input type="password" id="password" placeholder="ENTER PASSWORD TO ANALYZE" />
+      <button id="toggle-password" class="toggle-password" aria-label="Show password">
+        <div class="eye-icon">[/]</div>
+      </button>
+    </div>
+    <button id="check-btn">ANALYZE SECURITY</button>
+    
+    <div class="info-boxes">
+        <div class="info-box">
+            <h3>SECURITY LEVEL</h3>
+            <div id="strength-text"></div>
+            <div class="strength-bar">
+                <div id="bar-fill"></div>
+            </div>
+        </div>
+        <div class="info-box">
+            <h3>CRACK TIME</h3>
+            <div id="crack-time"></div>
+        </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
