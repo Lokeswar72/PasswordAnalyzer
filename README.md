@@ -7,7 +7,7 @@ The interface is inspired by Matrix-style aesthetics, incorporating custom anima
 
 This tool promotes cybersecurity awareness by educating users on what makes a password strong, helping them create better credentials to stay safe online.
 
-🔗 Live Demo: Password Analyzer
+🔗 Live Demo: https://lokeswar72.github.io/PasswordAnalyzer/
 
 Key Features:
 
